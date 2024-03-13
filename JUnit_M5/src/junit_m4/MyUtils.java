@@ -8,6 +8,7 @@ public class MyUtils {
      * @param cadena String cadena que es vol invertir
      * @return cadena invertida (null per cadenes nulls).
      */
+    
     public static String inverteix(String cadena) {
         if (cadena == null) {
             return null;
@@ -23,26 +24,23 @@ public class MyUtils {
      * @param day int dia del naixement
      * @param month int mes del naixement
      * @param year int any del naixement
-     * @return edat de la persona, per edat>150 retorna -1, per dates
-     * impossibles retorna -2
+     * @return edat de la persona, per edat>150 retorna -1, per dates impossibles retorna -2
      */
+    
     public static int edat(int day, int month, int year) {
-        int actualDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int actualMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
-        int actualYear = Calendar.getInstance().get(Calendar.YEAR);
+        int DiaActual = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int MesActual = Calendar.getInstance().get(Calendar.MONTH) + 1;
+        int AnyActual = Calendar.getInstance().get(Calendar.YEAR);
 
-        if (year > actualYear || (year == actualYear && month > actualMonth)
-                || (year == actualYear && month == actualMonth && day > actualDay)) {
+        if (year > AnyActual || (year == AnyActual && month > MesActual) || (year == AnyActual && month == MesActual && day > DiaActual)) {
             return -2;
         }
-
-        int edat = actualYear - year;
-        if (month < actualMonth) {
+        int edat = AnyActual - year;
+        if (month < MesActual) {
             edat--;
-        } else if (month == actualMonth && day < actualDay) {
+        } else if (month == MesActual && day < DiaActual) {
             edat--;
         }
-
         if (edat > 150) {
             return -1;
         }
@@ -52,9 +50,9 @@ public class MyUtils {
 
     /**
      * @param numero número del que es calcula el factorial
-     * @return retorna el factorial d'un número. Si el nombre es negatiu retorna
-     * -1.
+     * @return retorna el factorial d'un número. Si el nombre es negatiu retorna -1.
      */
+    
     public static double factorial(double numero) {
         if (numero < 0) {
             return -1;
